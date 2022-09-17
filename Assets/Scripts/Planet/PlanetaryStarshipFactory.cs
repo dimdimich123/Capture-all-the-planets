@@ -14,12 +14,16 @@ public sealed class PlanetaryStarshipFactory : MonoBehaviour
     void Start()
     {
         OnShipCreate?.Invoke(ShipCount);
-        StartCoroutine(GenerateShips());
     }
 
     public void Init(int shipCount)
     {
         ShipCount = shipCount;
+    }
+
+    public void StartGenerate()
+    {
+        StartCoroutine(GenerateShips());
     }
 
     private IEnumerator GenerateShips()
