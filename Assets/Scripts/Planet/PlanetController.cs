@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class PlanetController : MonoBehaviour
 {
-    [SerializeField] private Starship _starshipPrefab = null;
+    [SerializeField] private Starship _starshipPrefab;
     [SerializeField] private GameObject _stroke;
     [SerializeField] private SpriteRenderer _body;
 
     private PlanetaryStarshipFactory _shipFactory;
     private PlanetUI _planetUI;
-    
 
     private StarshipObjectPool _objectPool;
     private PlanetState _state = PlanetState.Neutral;
@@ -24,10 +23,7 @@ public class PlanetController : MonoBehaviour
         _objectPool = new StarshipObjectPool(_starshipPrefab, transform);
     }
 
-    private void OnEnable()
-    {
-        _planetUI.Enable();
-    }
+    
 
     private void Capitulate(PlanetState state)
     {
@@ -45,6 +41,11 @@ public class PlanetController : MonoBehaviour
         {
             _body.color = Color.blue;
         }
+    }
+
+    private void OnEnable()
+    {
+        _planetUI.Enable();
     }
 
     private void OnDisable()

@@ -59,7 +59,6 @@ public class StarshipObjectPool
 
         Starship newStarship = _firstAvailable;
         _firstAvailable = newStarship.Next;
-        Debug.Log(_starShips.Count);
         return newStarship.gameObject;
     }
 }

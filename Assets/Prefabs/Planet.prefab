@@ -368,7 +368,9 @@ GameObject:
   - component: {fileID: 6012954314679338815}
   - component: {fileID: 6012954314679338814}
   - component: {fileID: 6012954314679338813}
-  m_Layer: 0
+  - component: {fileID: 1173345968143565946}
+  - component: {fileID: 9221139410863012648}
+  m_Layer: 6
   m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,6 +417,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3ad25a54f68394aa1a8244670f2882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _starshipPrefab: {fileID: 0}
+  _starshipPrefab: {fileID: 8319456490761112305, guid: 2c7e823f0cfd5f549b88fb7723783b65, type: 3}
   _stroke: {fileID: 6012954313329122301}
   _body: {fileID: 6012954313516268063}
+--- !u!58 &1173345968143565946
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012954314679338812}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!50 &9221139410863012648
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012954314679338812}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 3
