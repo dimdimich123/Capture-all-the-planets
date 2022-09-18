@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-//[RequireComponent(typeof(PlanetController))]
+[RequireComponent(typeof(PlanetController))]
 public sealed class PlanetaryStarshipFactory : MonoBehaviour
 {
     private const float _timeBetweenGeneration = 1f;

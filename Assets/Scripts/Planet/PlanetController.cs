@@ -4,8 +4,11 @@ public class PlanetController : MonoBehaviour
 {
     [SerializeField] private Starship _starshipPrefab = null;
     [SerializeField] private GameObject _stroke;
+    [SerializeField] private SpriteRenderer _body;
+
     private PlanetaryStarshipFactory _shipFactory;
     private PlanetUI _planetUI;
+    
 
     private StarshipObjectPool _objectPool;
     private PlanetState _state = PlanetState.Neutral;
@@ -32,6 +35,15 @@ public class PlanetController : MonoBehaviour
         {
             _state = state;
             _shipFactory.StartGenerate();
+        }
+
+        if(_state == PlanetState.Enemy)
+        {
+            _body.color = Color.red;
+        }
+        else
+        {
+            _body.color = Color.blue;
         }
     }
 
