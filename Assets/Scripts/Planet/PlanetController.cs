@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlanetController : MonoBehaviour
 {
-    [SerializeField] private Starship _starshipPrefab;
+    [SerializeField] private Starship _starshipPrefab = null;
     [SerializeField] private GameObject _stroke;
     private PlanetaryStarshipFactory _shipFactory;
     private PlanetUI _planetUI;
