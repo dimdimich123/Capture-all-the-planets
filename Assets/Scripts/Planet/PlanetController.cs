@@ -10,10 +10,18 @@ public class PlanetController : MonoBehaviour
     private PlanetUI _planetUI;
 
     private StarshipObjectPool _objectPool;
-    private PlanetState _state = PlanetState.Neutral;
+    [SerializeField] private PlanetState _state = PlanetState.Neutral;
+
+    private float _maxSpawnShipDistance;
+    private float _minSpawnShipDistance;
+
+    private Color _color = Color.white;
 
     private void Awake()
     {
+        _minSpawnShipDistance = gameObject.transform.localScale.x / 2;
+        _maxSpawnShipDistance = _minSpawnShipDistance + 1;
+
         _shipFactory = GetComponent<PlanetaryStarshipFactory>();
         _shipFactory.Init(25);
 
@@ -23,7 +31,13 @@ public class PlanetController : MonoBehaviour
         _objectPool = new StarshipObjectPool(_starshipPrefab, transform);
     }
 
-    
+    public void AttackPlanet(Transform target)
+    {
+        for(int i = 0; i < _shipFactory.ShipCount / 2; ++i)
+        {
+            _objectPool.GetStarship(target, _color);
+        }
+    }
 
     private void Capitulate(PlanetState state)
     {
@@ -35,12 +49,13 @@ public class PlanetController : MonoBehaviour
 
         if(_state == PlanetState.Enemy)
         {
-            _body.color = Color.red;
+            _color = Color.black;
         }
         else
         {
-            _body.color = Color.blue;
+            _color = Color.blue;
         }
+        _body.color = _color;
     }
 
     private void OnEnable()

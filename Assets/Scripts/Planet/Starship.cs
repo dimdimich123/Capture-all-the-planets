@@ -12,7 +12,7 @@ public class Starship : MonoBehaviour
     private void Awake()
     {
         _target = GetComponent<AIDestinationSetter>();
-        _sprite = GetComponent<SpriteRenderer>();
+        _sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     public void Init(Transform target, Color color)
