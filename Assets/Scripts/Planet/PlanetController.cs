@@ -19,24 +19,18 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
     private void Awake()
     {
         _shipFactory = GetComponent<PlanetaryStarshipFactory>();
-        _shipFactory.Init(60);
 
         UnityEngine.UI.Text text = GetComponentInChildren<UnityEngine.UI.Text>();
         _planetUI = new PlanetUI(_shipFactory, text);
 
         _objectPool = new StarshipObjectPool(_starshipPrefab, transform);
+        Init(Random.Range(5, 40), PlanetState.Enemy);
+    }
 
-        if (_state == PlanetState.Enemy)
-        {
-            _color = Color.red;
-            _shipFactory.StartGenerate();
-        }
-        else if(_state == PlanetState.Friendly)
-        {
-            _color = Color.blue;
-            _shipFactory.StartGenerate();
-        }
-        _body.color = _color;
+    public void Init(int shipCount, PlanetState state)
+    {
+        _shipFactory.Init(shipCount);
+        Capitulate(state);
     }
 
     public void AttackPlanet(Transform target)
@@ -44,26 +38,43 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
         int shipsCount = _shipFactory.GetHalfCountShips();
         for(int i = 0; i < shipsCount; ++i)
         {
-            _objectPool.GetStarship(target, _color);
+            _objectPool.GetStarship(target, _color, _state);
+        }
+    }
+
+    public void ChangeShipCount(PlanetState state)
+    {
+        if(_state != state)
+        {
+            _shipFactory.ReduceShipCount();
+        }
+        else
+        {
+            _shipFactory.IncreaseShipCount();
+        }
+
+        if(_shipFactory.ShipCount < 0)
+        {
+            Capitulate(state);
         }
     }
 
     private void Capitulate(PlanetState state)
     {
-        if(_state == PlanetState.Neutral)
+        switch(_state)
         {
-            _state = state;
-            _shipFactory.StartGenerate();
+            case PlanetState.Neutral:
+                {
+                    _shipFactory.StartGenerate();
+                    _color = (state == PlanetState.Friendly) ? Color.blue : Color.red;
+                    break;
+                }  
+            case PlanetState.Enemy: _color = Color.blue; break;
+            case PlanetState.Friendly: _color = Color.red; break;
+            default: throw new System.Exception($"Unknown PlanetState/ Error in {nameof(PlanetController)}");
         }
 
-        if(_state == PlanetState.Enemy)
-        {
-            _color = Color.black;
-        }
-        else
-        {
-            _color = Color.blue;
-        }
+        _state = state;
         _body.color = _color;
     }
 

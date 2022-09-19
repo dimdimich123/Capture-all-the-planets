@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class StarshipObjectPool
 {
-    private const int _startCount = 5;
+    private const int _startCount = 50;
     private readonly Starship _prefab;
     private readonly Transform _transform;
     private readonly float _minSpawnDistance;
@@ -50,7 +50,7 @@ public class StarshipObjectPool
         _firstAvailable = deactivatedObj;
     }
 
-    public GameObject GetStarship(Transform target, Color color)
+    public GameObject GetStarship(Transform target, Color color, PlanetState state)
     {
         if(_firstAvailable == null)
         {
@@ -62,12 +62,12 @@ public class StarshipObjectPool
         Starship newStarship = _firstAvailable;
         _firstAvailable = newStarship.Next;
 
-        ConfigureShip(newStarship, target, color);
+        ConfigureShip(newStarship, target, color, state);
 
         return newStarship.gameObject;
     }
 
-    private void ConfigureShip(Starship ship, Transform target, Color color)
+    private void ConfigureShip(Starship ship, Transform target, Color color, PlanetState state)
     {
         float x = Random.Range(0, 0.5f) + _minSpawnDistance;
         float y = Random.Range(0, 0.5f) + _minSpawnDistance;
@@ -83,6 +83,6 @@ public class StarshipObjectPool
         ship.transform.position = _transform.position + new Vector3(x, y, 0);
 
         ship.gameObject.SetActive(true);
-        ship.Init(target, color);
+        ship.Init(target, color, state);
     }
 }

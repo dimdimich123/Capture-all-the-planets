@@ -44,6 +44,18 @@ public sealed class PlanetaryStarshipFactory : MonoBehaviour
         return count;
     }
 
+    public void ReduceShipCount()
+    {
+        ShipCount--;
+        OnCountChange?.Invoke(ShipCount);
+    }
+
+    public void IncreaseShipCount()
+    {
+        ShipCount++;
+        OnCountChange?.Invoke(ShipCount);
+    }
+
     private void OnDestroy()
     {
         StopAllCoroutines();
