@@ -22,8 +22,8 @@ public sealed class GameSettings : ScriptableObject
     public float MinPlanetSize => _size.Min;
     public float MaxPlanetSize => _size.Max;
 
-    public float MinShipCount => _startShipsCount.Min;
-    public float MaxShipCount => _startShipsCount.Max;
+    public int MinShipCount => _startShipsCount.Min;
+    public int MaxShipCount => _startShipsCount.Max;
     public GameDifficulty Difficulty => _difficulty;
 
 }

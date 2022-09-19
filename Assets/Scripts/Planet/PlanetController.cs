@@ -24,13 +24,24 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
         _planetUI = new PlanetUI(_shipFactory, text);
 
         _objectPool = new StarshipObjectPool(_starshipPrefab, transform);
-        Init(Random.Range(5, 40), PlanetState.Enemy);
     }
 
     public void Init(int shipCount, PlanetState state)
     {
         _shipFactory.Init(shipCount);
-        Capitulate(state);
+        ConfigurePlanet(state);
+    }
+
+    private void ConfigurePlanet(PlanetState state)
+    {
+        if (state != PlanetState.Neutral)
+        {
+            _color = (state == PlanetState.Friendly) ? Color.blue : Color.red;
+            _state = state;
+            _shipFactory.StartGenerate();
+        }
+        _body.color = _color;
+        
     }
 
     public void AttackPlanet(Transform target)
@@ -56,6 +67,7 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
         if(_shipFactory.ShipCount < 0)
         {
             Capitulate(state);
+            _shipFactory.IncreaseShipCount();
         }
     }
 

@@ -17,6 +17,6 @@ MonoBehaviour:
     Min: 1
     Max: 2
   _startShipsCount:
-    Min: 20
-    Max: 50
+    Min: 10
+    Max: 20
   _difficulty: 0

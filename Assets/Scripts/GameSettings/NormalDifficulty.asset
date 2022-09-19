@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551c8b1d928e05b4a88ca514060cbde3, type: 3}
   m_Name: NormalDifficulty
   m_EditorClassIdentifier: 
-  _planetCount: 0
+  _planetCount: 20
   _size:
-    Min: 0
-    Max: 0
+    Min: 0.7
+    Max: 1.5
   _startShipsCount:
-    Min: 0
-    Max: 0
-  _difficulty: 0
+    Min: 20
+    Max: 60
+  _difficulty: 1
