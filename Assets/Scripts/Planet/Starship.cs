@@ -25,7 +25,8 @@ public class Starship : MonoBehaviour
     {
         if (collision.gameObject == _target.target.gameObject)
         {
-            Destroy(gameObject);
+            ObjectPool.ConfigureDeactivatedStarship(this);
+            gameObject.SetActive(false);
         }
     }
 }

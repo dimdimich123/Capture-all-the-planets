@@ -15,7 +15,7 @@ public class StarshipObjectPool
     {
         _prefab = prefab;
         _transform = transform;
-        _minSpawnDistance = transform.localScale.x;
+        _minSpawnDistance = transform.localScale.x / 2;
         Init();
     }
 
@@ -69,8 +69,8 @@ public class StarshipObjectPool
 
     private void ConfigureShip(Starship ship, Transform target, Color color)
     {
-        float x = Random.Range(0, 1f) + _minSpawnDistance;
-        float y = Random.Range(0, 1f) + _minSpawnDistance;
+        float x = Random.Range(0, 0.5f) + _minSpawnDistance;
+        float y = Random.Range(0, 0.5f) + _minSpawnDistance;
 
         if (Random.Range(0, 2) > 0)
         {

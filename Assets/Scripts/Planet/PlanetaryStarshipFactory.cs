@@ -9,11 +9,11 @@ public sealed class PlanetaryStarshipFactory : MonoBehaviour
     private const int _generateCount = 5;
     public int ShipCount { get; private set; } = 0;
 
-    public event Action<int> OnShipCreate;
+    public event Action<int> OnCountChange;
 
     void Start()
     {
-        OnShipCreate?.Invoke(ShipCount);
+        OnCountChange?.Invoke(ShipCount);
     }
 
     public void Init(int shipCount)
@@ -32,8 +32,16 @@ public sealed class PlanetaryStarshipFactory : MonoBehaviour
         {
             yield return new WaitForSeconds(_timeBetweenGeneration);
             ShipCount += _generateCount;
-            OnShipCreate?.Invoke(ShipCount);
+            OnCountChange?.Invoke(ShipCount);
         }
+    }
+
+    public int GetHalfCountShips()
+    {
+        int count = ShipCount / 2;
+        ShipCount /= 2;
+        OnCountChange?.Invoke(ShipCount);
+        return count;
     }
 
     private void OnDestroy()

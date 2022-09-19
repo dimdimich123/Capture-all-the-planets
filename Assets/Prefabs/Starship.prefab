@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8319456490761112311}
   - component: {fileID: 8319456490761112308}
   - component: {fileID: 8319456490761112305}
-  - component: {fileID: 8319456490761112309}
+  - component: {fileID: -3764437115951995881}
   m_Layer: 0
   m_Name: Starship
   m_TagString: Untagged
@@ -91,8 +91,8 @@ MonoBehaviour:
   orientation: 1
   enableRotation: 1
   autoRepath:
-    mode: 2
-    interval: 0.5
+    mode: 1
+    interval: 60
     sensitivity: 10
     maximumInterval: 2
     visualizeSensitivity: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448f6a96ae1b44eb5435d7595145f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!60 &8319456490761112309
-PolygonCollider2D:
+--- !u!70 &-3764437115951995881
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,21 +146,8 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.0006117821, y: 0.22634539}
-      - {x: -0.13704497, y: -0.22182718}
-      - {x: 0.0016508698, y: -0.09105098}
-      - {x: 0.13863218, y: -0.22277035}
+  m_Size: {x: 0.1, y: 0.46}
+  m_Direction: 0
 --- !u!1 &8319456492423067581
 GameObject:
   m_ObjectHideFlags: 0

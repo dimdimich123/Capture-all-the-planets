@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 6012954313329122301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 6012954313516268061}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e584b06e8a71b174ab16961c3480d953, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -420,6 +420,7 @@ MonoBehaviour:
   _starshipPrefab: {fileID: 8319456490761112305, guid: 2c7e823f0cfd5f549b88fb7723783b65, type: 3}
   _stroke: {fileID: 6012954313329122301}
   _body: {fileID: 6012954313516268063}
+  _state: 0
 --- !u!58 &1173345968143565946
 CircleCollider2D:
   m_ObjectHideFlags: 0

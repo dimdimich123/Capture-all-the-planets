@@ -13,7 +13,7 @@ public class PlanetUI
 
     public void Enable()
     {
-        _shipFactory.OnShipCreate += UpdateText;
+        _shipFactory.OnCountChange += UpdateText;
     }
 
     private void UpdateText(int shipCount)
@@ -23,6 +23,6 @@ public class PlanetUI
 
     public void Disable()
     {
-        _shipFactory.OnShipCreate -= UpdateText;
+        _shipFactory.OnCountChange -= UpdateText;
     }
 }
