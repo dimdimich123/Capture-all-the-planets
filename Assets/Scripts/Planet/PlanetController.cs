@@ -11,10 +11,12 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
     private PlanetUI _planetUI;
 
     private StarshipObjectPool _objectPool;
-    [SerializeField] private PlanetState _state = PlanetState.Neutral;
+    public PlanetState State { get; private set; } = PlanetState.Neutral;
 
     private Color _color = Color.gray;
     private bool _isSelect = false;
+
+    public int ShipCount => _shipFactory.ShipCount;
 
     private void Awake()
     {
@@ -37,7 +39,7 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
         if (state != PlanetState.Neutral)
         {
             _color = (state == PlanetState.Friendly) ? Color.blue : Color.red;
-            _state = state;
+            State = state;
             _shipFactory.StartGenerate();
         }
         _body.color = _color;
@@ -49,13 +51,13 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
         int shipsCount = _shipFactory.GetHalfCountShips();
         for(int i = 0; i < shipsCount; ++i)
         {
-            _objectPool.GetStarship(target, _color, _state);
+            _objectPool.GetStarship(target, _color, State);
         }
     }
 
     public void ChangeShipCount(PlanetState state)
     {
-        if(_state != state)
+        if(State != state)
         {
             _shipFactory.ReduceShipCount();
         }
@@ -73,7 +75,7 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
 
     private void Capitulate(PlanetState state)
     {
-        switch(_state)
+        switch(State)
         {
             case PlanetState.Neutral:
                 {
@@ -86,7 +88,7 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
             default: throw new System.Exception($"Unknown PlanetState/ Error in {nameof(PlanetController)}");
         }
 
-        _state = state;
+        State = state;
         _body.color = _color;
     }
 
@@ -98,7 +100,7 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (_state == PlanetState.Friendly)
+        if (State == PlanetState.Friendly)
         {
             if(_isSelect)
             {
@@ -112,7 +114,7 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
                 _isSelect = true;
             }
         }
-        else if(_state != PlanetState.Friendly)
+        else if(State != PlanetState.Friendly)
         {
             PlayerController.Instance.SetAttackTarget(this);
         }
@@ -120,7 +122,7 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(_state != PlanetState.Friendly)
+        if(State != PlanetState.Friendly)
         {
             _stroke.SetActive(true);
             PlayerController.Instance.CreatePathToPlanet(this);
@@ -136,7 +138,7 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (_state != PlanetState.Friendly)
+        if (State != PlanetState.Friendly)
         {
             _stroke.SetActive(false);
             PlayerController.Instance.DestroyPath();
