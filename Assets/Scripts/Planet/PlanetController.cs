@@ -7,6 +7,7 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
     [SerializeField] private GameObject _stroke;
     [SerializeField] private SpriteRenderer _body;
 
+    private Level—ontroller _level—ontroller;
     private PlanetaryStarshipFactory _shipFactory;
     private PlanetUI _planetUI;
 
@@ -28,8 +29,9 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
         _objectPool = new StarshipObjectPool(_starshipPrefab, transform);
     }
 
-    public void Init(int shipCount, PlanetState state)
+    public void Init(int shipCount, PlanetState state, Level—ontroller level—ontroller)
     {
+        _level—ontroller = level—ontroller;
         _shipFactory.Init(shipCount);
         ConfigurePlanet(state);
     }
@@ -90,6 +92,8 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
 
         State = state;
         _body.color = _color;
+
+        _level—ontroller.CapitulatePlanet(State);
     }
 
     public void UnselectPlanet()

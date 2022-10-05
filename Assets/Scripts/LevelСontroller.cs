@@ -12,7 +12,6 @@ public sealed class LevelСontroller : MonoBehaviour
     [SerializeField] private PlanetController _planetPrefab;
     [SerializeField] private SettingsContainer _settings;
 
-
     private void Awake()
     {
         GeneratePlanets();
@@ -56,11 +55,11 @@ public sealed class LevelСontroller : MonoBehaviour
                 PlanetController newPlanetController = newPlanet.GetComponent<PlanetController>();
                 if (i > 1)
                 {
-                    newPlanetController.Init(shipCount, PlanetState.Neutral);
+                    newPlanetController.Init(shipCount, PlanetState.Neutral, this);
                 }
                 else
                 {
-                    newPlanetController.Init(_startShipCount, state);
+                    newPlanetController.Init(_startShipCount, state, this);
                     state = PlanetState.Enemy;
                 }
 
@@ -88,5 +87,26 @@ public sealed class LevelСontroller : MonoBehaviour
                 throw new System.Exception("Unknown game difficulty " + _settings.Settings.Difficulty + "  /  " + nameof(LevelСontroller));
         }
         _enemyAI.Init(_planets);
+    }
+
+    public void CapitulatePlanet(PlanetState state)
+    {
+        int countPlayerPlanets = 0;
+        foreach (PlanetController planet in _planets)
+        {
+            if(planet.State == PlanetState.Friendly)
+            {
+                countPlayerPlanets++;
+            }
+        }
+
+        if (countPlayerPlanets == _settings.Settings.PlanetCount)
+        {
+            Debug.LogError("YouWin");
+        }
+        if (countPlayerPlanets == 0)
+        {
+            Debug.LogError("YouLose");
+        }
     }
 }
