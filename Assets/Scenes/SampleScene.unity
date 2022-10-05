@@ -436,4 +436,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 519420031}
   _planetPrefab: {fileID: 6012954314679338813, guid: ec9ef90105fa12c4ab1a405c517cd627, type: 3}
-  _settings: {fileID: 11400000, guid: 68f7794b8a227c345bbf586c81808a90, type: 2}
+  _settings: {fileID: 11400000, guid: 4ede3aade5b9e0343a57ffb8031481db, type: 2}
