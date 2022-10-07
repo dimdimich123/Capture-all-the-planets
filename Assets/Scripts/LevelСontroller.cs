@@ -11,6 +11,7 @@ public sealed class LevelСontroller : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private PlanetController _planetPrefab;
     [SerializeField] private SettingsContainer _settings;
+    [SerializeField] private AudioSource _shipSound;
 
     [SerializeField] private Sprite[] _planetSprites;
 
@@ -58,11 +59,11 @@ public sealed class LevelСontroller : MonoBehaviour
                 int indexPlanetSprite = Random.Range(0, _planetSprites.Length);
                 if (i > 1)
                 {
-                    newPlanetController.Init(shipCount, PlanetState.Neutral, this, _planetSprites[indexPlanetSprite]);
+                    newPlanetController.Init(shipCount, PlanetState.Neutral, this, _planetSprites[indexPlanetSprite], _shipSound);
                 }
                 else
                 {
-                    newPlanetController.Init(_startShipCount, state, this, _planetSprites[indexPlanetSprite]);
+                    newPlanetController.Init(_startShipCount, state, this, _planetSprites[indexPlanetSprite], _shipSound);
                     state = PlanetState.Enemy;
                 }
 
