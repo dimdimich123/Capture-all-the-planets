@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuModel
+public sealed class MenuModel
 {
     private SettingsContainer _settings;
     private GameSettings _easySettings;
