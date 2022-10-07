@@ -12,6 +12,8 @@ public sealed class LevelСontroller : MonoBehaviour
     [SerializeField] private PlanetController _planetPrefab;
     [SerializeField] private SettingsContainer _settings;
 
+    [SerializeField] private Sprite[] _planetSprites;
+
     private void Awake()
     {
         GeneratePlanets();
@@ -53,13 +55,14 @@ public sealed class LevelСontroller : MonoBehaviour
                 int shipCount = Random.Range(_settings.Settings.MinShipCount, _settings.Settings.MaxShipCount);
 
                 PlanetController newPlanetController = newPlanet.GetComponent<PlanetController>();
+                int indexPlanetSprite = Random.Range(0, _planetSprites.Length);
                 if (i > 1)
                 {
-                    newPlanetController.Init(shipCount, PlanetState.Neutral, this);
+                    newPlanetController.Init(shipCount, PlanetState.Neutral, this, _planetSprites[indexPlanetSprite]);
                 }
                 else
                 {
-                    newPlanetController.Init(_startShipCount, state, this);
+                    newPlanetController.Init(_startShipCount, state, this, _planetSprites[indexPlanetSprite]);
                     state = PlanetState.Enemy;
                 }
 
