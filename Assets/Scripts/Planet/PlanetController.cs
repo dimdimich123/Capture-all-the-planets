@@ -14,7 +14,7 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
     private StarshipObjectPool _objectPool;
     public PlanetState State { get; private set; } = PlanetState.Neutral;
 
-    private Color _color = Color.gray;
+    private Color _color = new Color32(50, 50, 50, 255);
     private bool _isSelect = false;
 
     public int ShipCount => _shipFactory.ShipCount;
@@ -29,14 +29,14 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
         _objectPool = new StarshipObjectPool(_starshipPrefab, transform);
     }
 
-    public void Init(int shipCount, PlanetState state, Level—ontroller level—ontroller)
+    public void Init(int shipCount, PlanetState state, Level—ontroller level—ontroller, Sprite sprite)
     {
         _level—ontroller = level—ontroller;
         _shipFactory.Init(shipCount);
-        ConfigurePlanet(state);
+        ConfigurePlanet(state, sprite);
     }
 
-    private void ConfigurePlanet(PlanetState state)
+    private void ConfigurePlanet(PlanetState state, Sprite sprite)
     {
         if (state != PlanetState.Neutral)
         {
@@ -45,7 +45,7 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
             _shipFactory.StartGenerate();
         }
         _body.color = _color;
-        
+        GetComponentInChildren<SpriteRenderer>().sprite = sprite;
     }
 
     public void AttackPlanet(Transform target)
