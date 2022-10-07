@@ -11,6 +11,7 @@ public sealed class LevelСontroller : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private PlanetController _planetPrefab;
     [SerializeField] private SettingsContainer _settings;
+    [SerializeField] private AudioSource _shipSound;
 
     private void Awake()
     {
@@ -55,11 +56,11 @@ public sealed class LevelСontroller : MonoBehaviour
                 PlanetController newPlanetController = newPlanet.GetComponent<PlanetController>();
                 if (i > 1)
                 {
-                    newPlanetController.Init(shipCount, PlanetState.Neutral, this);
+                    newPlanetController.Init(shipCount, PlanetState.Neutral, this, _shipSound);
                 }
                 else
                 {
-                    newPlanetController.Init(_startShipCount, state, this);
+                    newPlanetController.Init(_startShipCount, state, this, _shipSound);
                     state = PlanetState.Enemy;
                 }
 
