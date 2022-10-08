@@ -28,6 +28,7 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
 
         _objectPool = new StarshipObjectPool(_starshipPrefab, transform);
     }
+
     public void Init(int shipCount, PlanetState state, Level—ontroller level—ontroller, Sprite sprite, AudioSource shipSound)
     {
         _objectPool.Init(shipSound);

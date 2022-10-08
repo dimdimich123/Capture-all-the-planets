@@ -12,7 +12,6 @@ public sealed class LevelСontroller : MonoBehaviour
     [SerializeField] private PlanetController _planetPrefab;
     [SerializeField] private SettingsContainer _settings;
     [SerializeField] private AudioSource _shipSound;
-
     [SerializeField] private Sprite[] _planetSprites;
 
     private void Awake()

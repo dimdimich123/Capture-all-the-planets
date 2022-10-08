@@ -11,9 +11,15 @@ public sealed class MenuView : MonoBehaviour
     [SerializeField] private Toggle _toggleNormalDifficulty;
     [SerializeField] private Toggle _toggleHardDifficulty;
 
+    [Header("Audio")]
+    [SerializeField] private Toggle _toggleSound;
+    [SerializeField] private Toggle _toggleMusic;
+
     public event Action OnPlay;
     public event Action OnExit;
     public event Action<GameDifficulty> OnToggleDifficulty;
+    public event Action<bool> OnToggleSound;
+    public event Action<bool> OnToggleMusic;
 
     private void OnEnable()
     {
@@ -22,6 +28,8 @@ public sealed class MenuView : MonoBehaviour
         _toggleEasyDifficulty.onValueChanged.AddListener(OnToggleEasyDifficulty);
         _toggleNormalDifficulty.onValueChanged.AddListener(OnToggleNormalDifficulty);
         _toggleHardDifficulty.onValueChanged.AddListener(OnToggleHardDifficulty);
+        _toggleSound.onValueChanged.AddListener(OnToggleSoundClick);
+        _toggleMusic.onValueChanged.AddListener(OnToggleMusicClick);
     }
 
     private void OnButtonPlay()
@@ -58,6 +66,16 @@ public sealed class MenuView : MonoBehaviour
         }
     }
 
+    private void OnToggleSoundClick(bool state)
+    {
+        OnToggleSound?.Invoke(state);
+    }
+
+    private void OnToggleMusicClick(bool state)
+    {
+        OnToggleMusic?.Invoke(state);
+    }
+
     private void OnDisable()
     {
         _buttonPlay.onClick.RemoveAllListeners();
@@ -65,5 +83,7 @@ public sealed class MenuView : MonoBehaviour
         _toggleEasyDifficulty.onValueChanged.RemoveAllListeners();
         _toggleNormalDifficulty.onValueChanged.RemoveAllListeners();
         _toggleHardDifficulty.onValueChanged.RemoveAllListeners();
+        _toggleSound.onValueChanged.RemoveAllListeners();
+        _toggleMusic.onValueChanged.RemoveAllListeners();
     }
 }
