@@ -2,6 +2,8 @@ using UnityEngine.UI;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(CanvasGroup))]
+
 public sealed class WinPanelView : MonoBehaviour
 {
     [SerializeField] private Button _buttonGoToMenu;
