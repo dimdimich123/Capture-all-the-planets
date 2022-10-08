@@ -7,6 +7,7 @@ public sealed class MenuPresenter : MonoBehaviour
     [SerializeField] private GameSettings _easySettings;
     [SerializeField] private GameSettings _normalSettings;
     [SerializeField] private GameSettings _hardSettings;
+    [SerializeField] private AudioSource _sounds;
 
     private MenuModel _model;
     private MenuView _view;
@@ -26,16 +27,19 @@ public sealed class MenuPresenter : MonoBehaviour
 
     private void OnPlay()
     {
+        _sounds.PlayOneShot(_sounds.clip);
         _model.LoadLevel();
     }
 
     private void OnExit()
     {
+        _sounds.PlayOneShot(_sounds.clip);
         _model.ExitGame();
     }
 
     private void OnToggleDifficulty(GameDifficulty difficulty)
     {
+        _sounds.PlayOneShot(_sounds.clip);
         _model.ChangeDifficulty(difficulty);
     }
 

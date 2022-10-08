@@ -29,8 +29,9 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
         _objectPool = new StarshipObjectPool(_starshipPrefab, transform);
     }
 
-    public void Init(int shipCount, PlanetState state, Level—ontroller level—ontroller)
+    public void Init(int shipCount, PlanetState state, Level—ontroller level—ontroller, AudioSource shipSound)
     {
+        _objectPool.Init(shipSound);
         _level—ontroller = level—ontroller;
         _shipFactory.Init(shipCount);
         ConfigurePlanet(state);
@@ -45,7 +46,6 @@ public class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnte
             _shipFactory.StartGenerate();
         }
         _body.color = _color;
-        
     }
 
     public void AttackPlanet(Transform target)

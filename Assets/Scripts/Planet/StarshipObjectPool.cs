@@ -8,6 +8,7 @@ public class StarshipObjectPool
     private readonly Transform _transform;
     private readonly float _minSpawnDistance;
     private readonly List<Starship> _starShips = new List<Starship>(_startCount);
+    private AudioSource _shipSound;
 
     private Starship _firstAvailable = null;
 
@@ -16,12 +17,13 @@ public class StarshipObjectPool
         _prefab = prefab;
         _transform = transform;
         _minSpawnDistance = transform.localScale.x / 2;
-        Init();
     }
 
-    private void Init()
+    public void Init(AudioSource shipSound)
     {
-        for(int i = 0; i < _startCount; ++i)
+        _shipSound = shipSound;
+
+        for (int i = 0; i < _startCount; ++i)
         {
             GenerateStarship();
         }
@@ -83,6 +85,6 @@ public class StarshipObjectPool
         ship.transform.position = _transform.position + new Vector3(x, y, 0);
 
         ship.gameObject.SetActive(true);
-        ship.Init(target, color, state);
+        ship.Init(target, color, state, _shipSound);
     }
 }
