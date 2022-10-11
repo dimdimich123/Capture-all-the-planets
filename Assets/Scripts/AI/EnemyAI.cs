@@ -24,6 +24,11 @@ public abstract class EnemyAI : MonoBehaviour
 
     protected abstract IEnumerator TryAttack();
 
+    public void Disable()
+    {
+        StopAllCoroutines();
+    }
+
     private void OnDisable()
     {
         StopAllCoroutines();

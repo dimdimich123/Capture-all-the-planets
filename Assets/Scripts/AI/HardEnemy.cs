@@ -34,6 +34,7 @@ public class HardEnemy : EnemyAI
 
         foreach (PlanetController planet in _planets)
         {
+            if (planet == null) continue;
             if (planet.State == PlanetState.Neutral && planet.ShipCount < _attackingPlanet.ShipCount / 2 && neutralMinShipCount > planet.ShipCount)
             {
                 neutralPlanet = planet;

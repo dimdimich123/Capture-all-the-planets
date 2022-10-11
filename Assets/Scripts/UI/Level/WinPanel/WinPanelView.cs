@@ -7,7 +7,6 @@ using System;
 public sealed class WinPanelView : MonoBehaviour
 {
     [SerializeField] private Button _buttonGoToMenu;
-    [SerializeField] private Button _buttonExit;
 
     private CanvasGroup _canvas;
 
@@ -21,7 +20,6 @@ public sealed class WinPanelView : MonoBehaviour
     private void OnEnable()
     {
         _buttonGoToMenu.onClick.AddListener(OnButtonExitClick);
-        _buttonExit.onClick.AddListener(OnButtonExitClick);
     }
 
     private void OnButtonExitClick()
@@ -46,6 +44,5 @@ public sealed class WinPanelView : MonoBehaviour
     private void OnDisable()
     {
         _buttonGoToMenu.onClick.RemoveAllListeners();
-        _buttonExit.onClick.RemoveAllListeners();
     }
 }

@@ -6,6 +6,7 @@ public class EasyEnemy : EnemyAI
 {
     protected override IEnumerator TryAttack()
     {
+        //yield return new WaitForSeconds(0.5f);
         while (true)
         {
             _attackingPlanet = null;
@@ -35,7 +36,16 @@ public class EasyEnemy : EnemyAI
                 _canAttackPlanet.Add(planet);
             }
         }
-        return _canAttackPlanet[Random.Range(0, _canAttackPlanet.Count + 1)];
+
+        if (_canAttackPlanet.Count > 0)
+        {
+            return _canAttackPlanet[Random.Range(0, _canAttackPlanet.Count)];
+        }
+        else
+        {
+            return null;
+        }
+        //return _canAttackPlanet[Random.Range(0, _canAttackPlanet.Count)];
     }
 
     protected override PlanetController FindAttackingPlanet()

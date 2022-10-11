@@ -14,6 +14,8 @@ public sealed class LevelСontroller : MonoBehaviour
     [SerializeField] private AudioSource _shipSound;
     [SerializeField] private Sprite[] _planetSprites;
 
+    [SerializeField] private WinPanelView _winPanel;
+    [SerializeField] private LosePanelView _losePanel;
     private void Awake()
     {
         GeneratePlanets();
@@ -95,21 +97,30 @@ public sealed class LevelСontroller : MonoBehaviour
     public void CapitulatePlanet(PlanetState state)
     {
         int countPlayerPlanets = 0;
+        int countEnemyPlanets = 0;
         foreach (PlanetController planet in _planets)
         {
             if(planet.State == PlanetState.Friendly)
             {
                 countPlayerPlanets++;
             }
+            else
+            if(planet.State == PlanetState.Enemy)
+            {
+                countEnemyPlanets++;
+            }
         }
 
-        if (countPlayerPlanets == _settings.Settings.PlanetCount)
+        if(countPlayerPlanets == 0)
         {
-            Debug.LogError("YouWin");
+            _losePanel.Open();
+            _enemyAI.Disable();
         }
-        if (countPlayerPlanets == 0)
+        else
+        if(countEnemyPlanets == 0)
         {
-            Debug.LogError("YouLose");
+            _winPanel.Open();
+            _enemyAI.Disable();
         }
     }
 }
