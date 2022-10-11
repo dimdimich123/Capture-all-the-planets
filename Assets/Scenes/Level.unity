@@ -222,7 +222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &408723991
 RectTransform:
   m_ObjectHideFlags: 0
@@ -269,7 +269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buttonGoToMenu: {fileID: 2077195835}
-  _buttonExit: {fileID: 1285171003}
 --- !u!225 &408723994
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -278,9 +277,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408723990}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &408723995
 MonoBehaviour:
@@ -340,7 +339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &467352477
 RectTransform:
   m_ObjectHideFlags: 0
@@ -370,9 +369,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467352476}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &467352479
 MonoBehaviour:
@@ -973,7 +972,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1513604299825752941, guid: 88427c8c776d25e48a669b6e361d2d87, type: 2}
   m_audioClip: {fileID: 8300000, guid: 55cef088ab0dee24e88603a7de8a5386, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1534,6 +1533,8 @@ MonoBehaviour:
   - {fileID: 7336592903002817553, guid: 815b80c65309d0e4493cec1e2c0c4d41, type: 3}
   - {fileID: 3773780440222339787, guid: 815b80c65309d0e4493cec1e2c0c4d41, type: 3}
   - {fileID: 6060349361780291894, guid: 815b80c65309d0e4493cec1e2c0c4d41, type: 3}
+  _winPanel: {fileID: 408723993}
+  _losePanel: {fileID: 467352482}
 --- !u!1 &1891864383
 GameObject:
   m_ObjectHideFlags: 0

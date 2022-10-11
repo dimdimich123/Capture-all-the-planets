@@ -1,7 +1,16 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-public class NormalEnemy : EnemyAI
+/// <summary>
+/// AI Enemy of Hard Difficulty.
+/// </summary>
+/// <remarks>
+/// The AI ​​will attack first found planet where the number of ships
+/// is less than half the number of ships on the planet with the AI's maximum number of ships.
+/// Neutral planets have a higher attack priority than the player's planets.
+/// </remarks>
+
+public sealed class NormalEnemy : EnemyAI
 {
     protected override IEnumerator TryAttack()
     {

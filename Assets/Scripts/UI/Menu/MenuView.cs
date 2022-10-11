@@ -2,6 +2,9 @@ using UnityEngine.UI;
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Implements data display from model.
+/// </summary>
 public sealed class MenuView : MonoBehaviour
 {
     [SerializeField] private Button _buttonPlay;

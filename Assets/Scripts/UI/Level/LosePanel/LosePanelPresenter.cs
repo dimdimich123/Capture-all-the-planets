@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Implements the interaction between the LosePanelModel and the LosePanelView.
+/// </summary>
+
 [RequireComponent(typeof(LosePanelView))]
 public sealed class LosePanelPresenter : MonoBehaviour
 {

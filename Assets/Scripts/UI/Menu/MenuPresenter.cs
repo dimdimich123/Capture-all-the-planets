@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
+/// <summary>
+/// Implements the interaction between the MenuModel and the MenuView.
+/// </summary>
 [RequireComponent(typeof(MenuView))]
 public sealed class MenuPresenter : MonoBehaviour
 {

@@ -1,8 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
-public class HardEnemy : EnemyAI
+/// <summary>
+/// AI Enemy of Hard Difficulty.
+/// </summary>
+/// <remarks>
+/// The AI ​​will attack any planet where the number of ships
+/// is less than half the number of ships on the planet with the AI's maximum number of ships.
+/// Neutral planets have a higher attack priority than the player's planets.
+/// </remarks>
+
+public sealed class HardEnemy : EnemyAI
 {
     protected override IEnumerator TryAttack()
     {
@@ -34,6 +42,7 @@ public class HardEnemy : EnemyAI
 
         foreach (PlanetController planet in _planets)
         {
+            if (planet == null) continue;
             if (planet.State == PlanetState.Neutral && planet.ShipCount < _attackingPlanet.ShipCount / 2 && neutralMinShipCount > planet.ShipCount)
             {
                 neutralPlanet = planet;

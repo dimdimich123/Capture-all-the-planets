@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Stores and implements the player's choice of planets.
+/// </summary>
 public sealed class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject _pathBetweenPlanets;

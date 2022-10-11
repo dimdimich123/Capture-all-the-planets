@@ -1,16 +1,20 @@
 using UnityEngine;
 
+/// <summary>
+/// Implements the interaction between the WinPanelModel and the WinPanelView.
+/// </summary>
+
 [RequireComponent(typeof(WinPanelView))]
 
 public sealed class WinPanelPresenter : MonoBehaviour
 {
-    private LosePanelModel _model;
-    private LosePanelView _view;
+    private WinPanelModel _model;
+    private WinPanelView _view;
 
     private void Awake()
     {
-        _model = new LosePanelModel();
-        _view = GetComponent<LosePanelView>();
+        _model = new WinPanelModel();
+        _view = GetComponent<WinPanelView>();
     }
 
     private void OnEnable()

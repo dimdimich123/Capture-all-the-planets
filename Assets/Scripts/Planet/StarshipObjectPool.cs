@@ -1,7 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StarshipObjectPool
+/// <summary>
+/// Stores a pool of spaceships.
+/// </summary>
+
+public sealed class StarshipObjectPool
 {
     private const int _startCount = 50;
     private readonly Starship _prefab;
@@ -71,17 +75,14 @@ public class StarshipObjectPool
 
     private void ConfigureShip(Starship ship, Transform target, Color color, PlanetState state)
     {
-        float x = Random.Range(0, 0.5f) + _minSpawnDistance;
-        float y = Random.Range(0, 0.5f) + _minSpawnDistance;
-
-        if (Random.Range(0, 2) > 0)
-        {
-            x = -x;
-        }
-        if (Random.Range(0, 2) > 0)
+        float radius = _minSpawnDistance + Random.value;
+        float x = Random.Range(-radius, radius);
+        float y = Mathf.Sqrt(radius * radius - x * x);
+        if(Random.Range(0, 2) > 0)
         {
             y = -y;
         }
+
         ship.transform.position = _transform.position + new Vector3(x, y, 0);
 
         ship.gameObject.SetActive(true);

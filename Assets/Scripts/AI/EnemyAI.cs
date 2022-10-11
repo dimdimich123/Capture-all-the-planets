@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Abstract class for implementing enemy AI.
+/// </summary>
+/// <remarks>
+
 public abstract class EnemyAI : MonoBehaviour
 {
     protected PlanetController _attackingPlanet = null;
@@ -23,6 +28,11 @@ public abstract class EnemyAI : MonoBehaviour
     }
 
     protected abstract IEnumerator TryAttack();
+
+    public void Disable()
+    {
+        StopAllCoroutines();
+    }
 
     private void OnDisable()
     {

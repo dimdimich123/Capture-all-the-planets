@@ -2,6 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
+/// <summary>
+/// Stores Menu data.
+/// </summary>
+
 public sealed class MenuModel
 {
     private const string SoundVolume = "SoundVolume";
