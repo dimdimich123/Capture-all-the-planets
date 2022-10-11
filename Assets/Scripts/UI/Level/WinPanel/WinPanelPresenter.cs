@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Implements the interaction between the WinPanelModel and the WinPanelView.
+/// </summary>
+
 [RequireComponent(typeof(WinPanelView))]
 
 public sealed class WinPanelPresenter : MonoBehaviour

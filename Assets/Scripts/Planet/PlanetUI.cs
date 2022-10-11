@@ -1,5 +1,8 @@
 using UnityEngine.UI;
 
+/// <summary>
+/// Displaying number of starship on the planet.
+/// </summary>
 public sealed class PlanetUI
 {
     private PlanetaryStarshipFactory _shipFactory;

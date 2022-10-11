@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Generates level and checks him for end.
+/// </summary>
 public sealed class LevelСontroller : MonoBehaviour
 {
     private const int _startShipCount = 50;

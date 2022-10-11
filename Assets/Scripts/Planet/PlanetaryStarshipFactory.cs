@@ -2,6 +2,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Generates ships located on the planet.
+/// </summary>
+
 [RequireComponent(typeof(PlanetController))]
 public sealed class PlanetaryStarshipFactory : MonoBehaviour
 {

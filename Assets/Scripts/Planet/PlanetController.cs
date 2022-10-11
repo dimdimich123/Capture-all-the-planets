@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Governs all the components of the planet.
+/// </summary>
+
 public sealed class PlanetController : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Starship _starshipPrefab;

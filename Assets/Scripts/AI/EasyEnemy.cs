@@ -1,12 +1,19 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+
+/// <summary>
+/// AI Enemy of Easy Difficulty.
+/// </summary>
+/// <remarks>
+/// The AI ​​will attack RANDOM planet where the number of ships
+/// is less than half the number of ships on the planet with the AI's maximum number of ships.
+/// </remarks>
 
 public sealed class EasyEnemy : EnemyAI
 {
     protected override IEnumerator TryAttack()
     {
-        //yield return new WaitForSeconds(0.5f);
         while (true)
         {
             _attackingPlanet = null;

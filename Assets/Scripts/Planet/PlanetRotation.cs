@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Rotates an object around forward axis.
+/// </summary>
+
 public sealed class PlanetRotation : MonoBehaviour
 {
     private const float _minSpeed = 0.01f;

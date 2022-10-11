@@ -1,6 +1,10 @@
 using UnityEngine;
 using Pathfinding;
 
+/// <summary>
+/// Configuring logic and visual component starships.
+/// </summary>
+
 [RequireComponent(typeof(AIDestinationSetter))]
 public sealed class Starship : MonoBehaviour
 {

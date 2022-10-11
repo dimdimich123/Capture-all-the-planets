@@ -2,6 +2,10 @@ using UnityEngine.UI;
 using UnityEngine;
 using System;
 
+/// <summary>
+/// Implements data display from model.
+/// </summary>
+
 [RequireComponent(typeof(CanvasGroup))]
 public sealed class LosePanelView : MonoBehaviour
 {

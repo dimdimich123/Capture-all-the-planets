@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Contains level settings.
+/// </summary>
+
 [CreateAssetMenu(fileName = "NewGameSettings", menuName = "GameSettings", order = 1)]
 public sealed class GameSettings : ScriptableObject
 {

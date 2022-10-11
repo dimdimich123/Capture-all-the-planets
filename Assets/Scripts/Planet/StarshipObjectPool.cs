@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Stores a pool of spaceships.
+/// </summary>
+
 public sealed class StarshipObjectPool
 {
     private const int _startCount = 50;

@@ -2,8 +2,11 @@ using UnityEngine.UI;
 using UnityEngine;
 using System;
 
-[RequireComponent(typeof(CanvasGroup))]
+/// <summary>
+/// Implements data display from model.
+/// </summary>
 
+[RequireComponent(typeof(CanvasGroup))]
 public sealed class WinPanelView : MonoBehaviour
 {
     [SerializeField] private Button _buttonGoToMenu;
