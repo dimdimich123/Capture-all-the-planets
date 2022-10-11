@@ -2,7 +2,7 @@ using UnityEngine;
 using Pathfinding;
 
 [RequireComponent(typeof(AIDestinationSetter))]
-public class Starship : MonoBehaviour
+public sealed class Starship : MonoBehaviour
 {
     private AIDestinationSetter _aiDistanation;
     private PlanetController _target;

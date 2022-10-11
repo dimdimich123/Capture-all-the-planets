@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
-public class EasyEnemy : EnemyAI
+public sealed class EasyEnemy : EnemyAI
 {
     protected override IEnumerator TryAttack()
     {
@@ -45,7 +45,6 @@ public class EasyEnemy : EnemyAI
         {
             return null;
         }
-        //return _canAttackPlanet[Random.Range(0, _canAttackPlanet.Count)];
     }
 
     protected override PlanetController FindAttackingPlanet()

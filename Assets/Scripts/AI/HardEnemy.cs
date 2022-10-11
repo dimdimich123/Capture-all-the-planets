@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HardEnemy : EnemyAI
+public sealed class HardEnemy : EnemyAI
 {
     protected override IEnumerator TryAttack()
     {

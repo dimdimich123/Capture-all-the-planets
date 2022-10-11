@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlanetRotation : MonoBehaviour
+public sealed class PlanetRotation : MonoBehaviour
 {
     private const float _minSpeed = 0.01f;
     private const float _maxSpeed = 0.1f;
@@ -15,8 +15,22 @@ public class PlanetRotation : MonoBehaviour
         _speed = Random.Range(_minSpeed, _maxSpeed);
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        _transform.Rotate(Vector3.forward, _speed);
+        StartCoroutine(Rotate());
+    }
+
+    private System.Collections.IEnumerator Rotate()
+    {
+        while(true)
+        {
+            _transform.Rotate(Vector3.forward, _speed);
+            yield return null;
+        }
+        
+    }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 }

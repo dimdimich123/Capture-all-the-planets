@@ -1,6 +1,6 @@
 using UnityEngine.UI;
 
-public class PlanetUI
+public sealed class PlanetUI
 {
     private PlanetaryStarshipFactory _shipFactory;
     private Text _text;

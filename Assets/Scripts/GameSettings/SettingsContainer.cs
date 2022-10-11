@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewSettingsContainer", menuName = "SettingsContainer", order = 2)]
-public class SettingsContainer : ScriptableObject
+public sealed class SettingsContainer : ScriptableObject
 {
     [SerializeField] private GameSettings _settings;
 
